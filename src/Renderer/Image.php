@@ -112,6 +112,18 @@ class Image extends Block
             );
         } else {
             $this->_canvas->image($src, $x, $y, $w, $h, $style->image_resolution);
+            $font = $style->font_family;
+            $size = $style->font_size;
+            $spacing = $style->word_spacing;
+            $this->_canvas->text(
+                $x,
+                $y,
+                $frame->get_node()->getAttribute("alt"),
+                $font,
+                $size,
+                'transparent',
+                $spacing
+            );
         }
 
         if ($has_border_radius) {
